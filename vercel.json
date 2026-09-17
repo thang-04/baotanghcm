@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "fluid": true,
   "functions": {
-    "api/socket-io.js": {
+    "api/socket-io.ts": {
       "maxDuration": 300
     }
   }
