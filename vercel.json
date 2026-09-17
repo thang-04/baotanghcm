@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/socket-io.js": {
+    "api/socket-io/[...path].js": {
       "maxDuration": 300
     }
   }

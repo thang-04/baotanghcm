@@ -2,10 +2,11 @@ const http = require('http');
 const { Server } = require('socket.io');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const roomFourSpatial = require('./src/lib/roomFourSpatial.json');
 const { createCompetitionTransport } = require('./server/competition/transport.cjs');
 const competition = createCompetitionTransport({
-  dataDir: process.env.VERCEL ? path.join('/tmp', 'hcm202-competition') : undefined,
+  dataDir: process.env.COMPETITION_DATA_DIR || (process.env.VERCEL ? path.join(os.tmpdir(), 'hcm202-competition') : undefined),
 });
 
 // Giới hạn số người tham quan đồng thời tối đa trong một phòng
@@ -42,7 +43,7 @@ movementFlushTimer.unref();
 
 // Lưu trữ bảng xếp hạng game gốm sứ trong file/bộ nhớ
 const LEADERBOARD_FILE = process.env.VERCEL
-  ? path.join('/tmp', 'hcm202-leaderboard.json')
+  ? path.join(os.tmpdir(), 'hcm202-leaderboard.json')
   : path.join(__dirname, 'leaderboard.json');
 let leaderboard = [];
 try {
@@ -176,6 +177,9 @@ const getSocketRoom = (galleryId) => {
 };
 
 const server = http.createServer((req, res) => {
+  if (process.env.VERCEL && req.url) {
+    req.url = req.url.replace(/^\/api\/socket-io/, '') || '/';
+  }
   if (competition.http(req, res)) return;
   // CORS Headers để cho phép gọi API từ client ở cổng khác (cổng 3000) hoặc production URL
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -219,6 +223,7 @@ const server = http.createServer((req, res) => {
 });
 
 const io = new Server(server, {
+  path: process.env.VERCEL ? '/api/socket-io/socket.io' : '/socket.io',
   cors: {
     origin: '*',
     methods: ['GET', 'POST']
