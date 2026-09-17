@@ -7,6 +7,7 @@ import { Exhibit, Gallery } from '@/lib/db';
 import { Shield, Lock, Plus, Trash2, Sliders, ArrowLeft, Save, Edit3, Compass, Sparkles, DoorOpen, DoorClosed, Loader2, Zap, Power, Clock, Users, Award, X } from 'lucide-react';
 import { ROOM_THREE_DISPLAY_NAME } from '@/lib/roomThreeNarrative';
 import { fetchAdminData } from '@/lib/adminData';
+import { getRealtimeEndpoint } from '@/lib/realtimeEndpoint';
 
 // Cấu hình cửa phòng
 const DOOR_CONFIGS = [
@@ -70,8 +71,9 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (!isAuthorized) return;
 
-    const socketUrl = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001';
-    const sock = io(socketUrl, {
+    const endpoint = getRealtimeEndpoint();
+    const sock = io(endpoint.origin, {
+      path: endpoint.socketPath,
       transports: ['websocket'],
       autoConnect: true,
     });

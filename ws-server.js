@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const roomFourSpatial = require('./src/lib/roomFourSpatial.json');
 const { createCompetitionTransport } = require('./server/competition/transport.cjs');
-const competition = createCompetitionTransport();
+const competition = createCompetitionTransport({
+  dataDir: process.env.VERCEL ? path.join('/tmp', 'hcm202-competition') : undefined,
+});
 
 // Giới hạn số người tham quan đồng thời tối đa trong một phòng
 const MAX_USERS_PER_ROOM = 65;
@@ -23,7 +25,7 @@ const waitingQueues = {};
 // ═══════════════════════════════════════════════════════════════════════════
 const dirtyUsers = new Set(); // Tập hợp socketId có vị trí thay đổi
 
-setInterval(() => {
+const movementFlushTimer = setInterval(() => {
   if (dirtyUsers.size === 0) return;
   // Gom tất cả user dirty thành 1 mảng
   const batch = [];
@@ -36,9 +38,12 @@ setInterval(() => {
     io.to('museum-unified').emit('users-batch-moved', batch);
   }
 }, 100); // 10Hz flush
+movementFlushTimer.unref();
 
 // Lưu trữ bảng xếp hạng game gốm sứ trong file/bộ nhớ
-const LEADERBOARD_FILE = path.join(__dirname, 'leaderboard.json');
+const LEADERBOARD_FILE = process.env.VERCEL
+  ? path.join('/tmp', 'hcm202-leaderboard.json')
+  : path.join(__dirname, 'leaderboard.json');
 let leaderboard = [];
 try {
   if (fs.existsSync(LEADERBOARD_FILE)) {
@@ -1024,8 +1029,12 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || process.env.WS_PORT || 3001;
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`===================================================`);
-  console.log(`WebSocket server đang chạy trên cổng http://0.0.0.0:${PORT}`);
-  console.log(`===================================================`);
-});
+if (require.main === module) {
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`===================================================`);
+    console.log(`WebSocket server đang chạy trên cổng http://0.0.0.0:${PORT}`);
+    console.log(`===================================================`);
+  });
+}
+
+module.exports = server;

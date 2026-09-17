@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { getAvatarOutfit } from '@/lib/avatarCatalog';
 import { io, Socket } from 'socket.io-client';
 import { Gallery, Exhibit } from '@/lib/db';
+import { getRealtimeEndpoint } from '@/lib/realtimeEndpoint';
 import roomFourSpatial from '@/lib/roomFourSpatial.json';
 import roomFiveSpatial from '@/lib/roomFiveSpatial.json';
 
@@ -719,8 +720,9 @@ export const MuseumProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // ═══════════════════════════════════════════════════════════════════════════
   useEffect(() => {
     // Kết nối socket ngay khi provider mount (cho cả lobby và gallery)
-    const socketUrl = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001';
-    const newSocket = io(socketUrl, {
+    const endpoint = getRealtimeEndpoint();
+    const newSocket = io(endpoint.origin, {
+      path: endpoint.socketPath,
       transports: ['websocket'],
       autoConnect: true,
     });

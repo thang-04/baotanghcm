@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
 import type { CompetitionSnapshot } from '@/lib/competitionTypes';
+import { getRealtimeEndpoint } from '@/lib/realtimeEndpoint';
 
 export type CompetitionReply = { ok: boolean; error?: string; session?: CompetitionSnapshot; participantId?: string; participantToken?: string; correct?: boolean; duplicate?: boolean; recoveryCode?: string };
 type Identity = { code: string; nickname: string; outfitId: string; participantToken?: string; participantId?: string };
@@ -16,7 +17,8 @@ type CompetitionValue = {
 };
 const CompetitionContext = createContext<CompetitionValue | null>(null);
 export function competitionSocket() {
-  return io(process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001', { transports: ['websocket'], withCredentials: true, autoConnect: false });
+  const endpoint = getRealtimeEndpoint();
+  return io(endpoint.origin, { path: endpoint.socketPath, transports: ['websocket'], withCredentials: true, autoConnect: false });
 }
 export function sendCompetition(socket: Socket, event: string, data: Record<string, unknown> = {}): Promise<CompetitionReply> {
   return new Promise(resolve => {

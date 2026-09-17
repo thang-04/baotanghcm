@@ -12,6 +12,7 @@ import MiniGameModal from '@/components/ui/MiniGameModal';
 import { RoomFiveMissionHud } from '@/components/ui/RoomFiveMissionHud';
 import { RoomOneSoundtrack } from '@/components/ui/RoomOneSoundtrack';
 import { Users, MessageSquare, ArrowLeft, SendHorizontal, Settings } from 'lucide-react';
+import { getRealtimeEndpoint } from '@/lib/realtimeEndpoint';
 
 interface ChatMessage {
   userId: string;
@@ -118,8 +119,8 @@ export default function GalleryPage({ params }: PageProps) {
     let isMounted = true;
     const fetchStats = async () => {
       try {
-        const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:3001';
-        const statsUrl = `${wsUrl.replace(/\/$/, '')}/stats?galleryId=${galleryId}`;
+        const endpoint = getRealtimeEndpoint();
+        const statsUrl = `${endpoint.httpBase}/stats?galleryId=${galleryId}`;
 
         const res = await fetch(statsUrl);
         if (!res.ok) throw new Error(`HTTP status ${res.status}`);
