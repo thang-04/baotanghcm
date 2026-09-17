@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tertiary: #605f51;
+  --color-primary: #5f5e5e;
+  --color-surface-container-high: #e9e8e7;
+  --color-outline: #747877;
+  --color-secondary-fixed: #ffdea1;
+  --color-surface-tint: #5f5e5e;
+  --color-background: #fbf9f8;
+  --color-on-tertiary-container: #747364;
+  --color-on-tertiary-fixed-variant: #48473a;
+  --color-on-secondary-container: #775f2d;
+  --color-on-primary-fixed-variant: #474746;
+  --color-outline-variant: #c4c7c6;
+  --color-primary-fixed-dim: #c8c6c5;
+  --color-on-secondary: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-surface-container: #efeded;
+  --color-on-error-container: #93000a;
+  --color-error: #ba1a1a;
+  --color-surface-bright: #fbf9f8;
+  --color-secondary: #725b29;
+  --color-surface-container-low: #f5f3f3;
+  --color-surface-variant: #e3e2e2;
+  --color-primary-fixed: #e5e2e1;
+  --color-secondary-fixed-dim: #e2c386;
+  --color-on-surface-variant: #444747;
+  --color-on-tertiary-fixed: #1c1c11;
+  --color-on-primary-fixed: #1c1b1b;
+  --color-primary-container: #fcf9f8;
+  --color-tertiary-fixed: #e6e3d1;
+  --color-on-background: #1b1c1c;
+  --color-secondary-container: #fcdc9d;
+  --color-surface: #fbf9f8;
+  --color-on-surface: #1b1c1c;
+  --color-on-primary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-inverse-on-surface: #f2f0f0;
+  --color-on-secondary-fixed: #261900;
+  --color-inverse-surface: #303030;
+  --color-tertiary-container: #fdfae7;
+  --color-inverse-primary: #c8c6c5;
+  --color-on-primary-container: #737272;
+  --color-surface-container-lowest: #ffffff;
+  --color-tertiary-fixed-dim: #cac7b6;
+  --color-surface-container-highest: #e3e2e2;
+  --color-on-tertiary: #ffffff;
+  --color-surface-dim: #dbdad9;
+  --color-on-secondary-fixed-variant: #594413;
+
+  --spacing-margin-mobile: 20px;
+  --spacing-section-gap: 120px;
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1440px;
+  --spacing-margin-desktop: 64px;
+  --spacing-unit: 8px;
+
+  --font-headline-lg-mobile: var(--font-eb-garamond), Georgia, serif;
+  --font-display-lg: var(--font-eb-garamond), Georgia, serif;
+  --font-label-sm: var(--font-hanken-grotesk), Arial, sans-serif;
+  --font-body-md: var(--font-manrope), Arial, sans-serif;
+  --font-headline-lg: var(--font-eb-garamond), Georgia, serif;
+  --font-body-lg: var(--font-manrope), Arial, sans-serif;
+  --font-headline-md: var(--font-eb-garamond), Georgia, serif;
+  --font-display-lg-mobile: var(--font-eb-garamond), Georgia, serif;
+}
+
+body {
+  background-color: #fbf9f8;
+  color: #1b1c1c;
+  font-family: var(--font-manrope), Arial, sans-serif;
+}
+
+/* Chữ trên bảng HTML trong không gian 3D: ưu tiên font hệ thống có đủ dấu tiếng Việt. */
+.museum-room-sign {
+  font-family: Arial, Helvetica, sans-serif;
+  font-kerning: normal;
+  font-synthesis: none;
+}
+
+/* Typography của Phòng Bến Nhà Rồng dùng cùng hệ chữ tư liệu của Phòng 4. */
+.nha-rong-typography,
+.nha-rong-typography .font-sans {
+  font-family: var(--font-hanken-grotesk), var(--font-manrope), Arial, sans-serif;
+  font-kerning: normal;
+  font-synthesis: none;
+}
+
+.nha-rong-typography .font-mono {
+  font-family: var(--font-space-grotesk), var(--font-hanken-grotesk), Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.nha-rong-typography h2,
+.nha-rong-display {
+  font-family: var(--font-eb-garamond), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+/* Custom scrollbar for an elegant feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #efeded; /* surface-container */
+}
+::-webkit-scrollbar-thumb {
+  background: #c4c7c6; /* outline-variant */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #725b29; /* secondary */
+}
+
+/* Glassmorphism utility for museum elements */
+.glass-panel {
+  background: rgba(43, 53, 68, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(114, 91, 41, 0.3); /* secondary/30 */
+}
+
+.artifact-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.artifact-card:hover {
+  background: rgba(43, 53, 68, 0.3);
+  border-top: 1px solid #725b29; /* Solid gold secondary on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Competition surfaces: bright museum paper, burgundy controls, readable data. */
+.race-page{min-height:100vh;background:#f5f4ef;color:#292a27;padding:24px clamp(18px,5vw,80px) 64px;font-family:var(--font-manrope),sans-serif}.race-header{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:0 auto 40px;max-width:1280px;font-size:14px}.race-header a,.race-link{color:#7c282b;text-decoration:underline;text-underline-offset:4px}.race-intro{max-width:850px;margin:40px auto;text-align:center}.race-intro h1,.race-page h1{font-family:var(--font-eb-garamond),serif;font-weight:600;font-size:clamp(36px,5vw,64px);line-height:1.05;margin:12px 0 20px}.race-intro p{max-width:640px;margin:16px auto;line-height:1.8}.race-eyebrow{font-size:13px;color:#7c282b;font-weight:700}.race-entry-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;max-width:1100px;margin:auto}.race-panel{padding:28px;background:white;border:1px solid #deddd3;border-radius:16px;max-width:1280px;margin:0 auto 20px}.race-panel h2,.race-modal h2{font-size:25px;line-height:1.3;font-weight:750;margin:0 0 18px}.race-panel p,.race-modal p{line-height:1.7;margin:10px 0}.race-form{display:flex;flex-direction:column;gap:20px}.race-form label{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:650}.race-page input,.race-page select,.race-page textarea,.race-modal input,.race-modal textarea{background:#fff;color:#292a27;padding:12px 14px;border:1px solid #c7c8be;border-radius:8px;min-width:0;width:100%;font:inherit}.race-page input:focus,.race-page select:focus,.race-page textarea:focus{outline:2px solid #92705e;outline-offset:2px}.race-fields{display:flex;gap:18px;align-items:start}.race-fields>*{flex:1}.race-button{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:44px;padding:11px 20px;background:#7c282b;color:white;border-radius:8px;border:1px solid transparent;font-size:14px;font-weight:700;cursor:pointer;line-height:1.5;text-decoration:none}.race-button:hover{background:#642023}.race-button:disabled{opacity:.45;cursor:not-allowed}.race-secondary{background:white;color:#642023;border-color:#cfc5bd}.race-secondary:hover{background:#f4ece6}.race-danger{background:#8d2820}.race-note{background:#f4f4eb;padding:14px 16px;border-left:3px solid #9b915f;border-radius:4px;font-size:14px;line-height:1.6}.race-alert{color:#822b20;background:#fff0eb;padding:14px;border:1px solid #ebc2b5;border-radius:8px;font-size:14px;line-height:1.6;margin:12px 0}.race-secret{display:block;overflow-wrap:anywhere;padding:18px;background:#f4f4eb;margin:20px 0;font-size:15px}.race-badge{display:inline-flex;align-items:center;gap:8px;background:#e5eee2;color:#24523b;padding:7px 12px;border-radius:30px;font-size:12px;font-weight:700}.race-dashboard-title{max-width:1280px;margin:0 auto 28px;display:flex;justify-content:space-between;gap:24px;align-items:center}.race-dashboard-title h1{font-size:42px}.race-invite{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}.race-invite strong{font-size:28px;letter-spacing:.12em}.race-invite a{font-size:12px;text-decoration:underline}.race-stats{display:grid;grid-template-columns:repeat(5,1fr);max-width:1280px;margin:20px auto;gap:12px}.race-stats>div{border-bottom:2px solid #cfc7b9;background:#fff;padding:20px}.race-stats strong{display:block;font-size:27px;font-variant-numeric:tabular-nums}.race-stats span{font-size:13px;color:#686a61}.race-action-bar,.race-tabs{display:flex;align-items:center;gap:14px;max-width:1280px;margin:22px auto;flex-wrap:wrap}.race-tabs{border-bottom:1px solid #cfcfc3;gap:0}.race-tabs button{padding:14px 20px;border-bottom:3px solid transparent;cursor:pointer;font-weight:650;font-size:14px}.race-tabs button.active{color:#7c282b;border-color:#7c282b}.race-table-wrap{overflow:auto;max-width:100%}.race-table{width:100%;border-collapse:collapse;font-size:14px;white-space:nowrap}.race-table caption{text-align:left;font-size:22px;font-weight:700;margin:0 0 18px}.race-table th{text-align:left;background:#f4f3ec;color:#595c52;font-size:12px;padding:14px 12px}.race-table td{padding:14px 12px;border-bottom:1px solid #e6e6dc}.race-table td small{display:block;color:#6f7268;font-size:10px;margin-top:4px}.race-success-text{color:#246448;font-weight:700}.race-question-group{margin-top:28px}.race-question-group h3{font-size:20px;font-weight:750}.race-question-group article{padding:20px 0;border-bottom:1px solid #e1e0d7}.race-question-group h4{font-weight:700}.race-question-group ul{padding-left:20px;margin-top:12px;list-style:disc;line-height:1.8}.race-question-group small{color:#72766a}.race-modal-backdrop{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;background:rgba(30,37,27,.42);padding:20px;backdrop-filter:blur(4px);pointer-events:auto}.race-modal{position:relative;background:#fffef9;color:#292a27;padding:36px;max-width:650px;width:100%;border-radius:18px;max-height:90dvh;overflow:auto;box-shadow:0 20px 80px #18220d26;line-height:1.6}.race-modal-wide{max-width:1000px}.race-close{position:absolute;right:14px;top:10px;background:#eeeae0;color:#292a27;border-radius:50%;width:32px;height:32px;font-size:22px;cursor:pointer}.race-actions{display:flex;gap:12px;justify-content:end}.race-link{display:inline-block;font-size:13px;cursor:pointer;padding:8px 0}.race-link:disabled{opacity:.4}.race-join{max-width:800px}.race-podium{padding:36px 12px;text-align:center}.race-podium h2{font-family:var(--font-eb-garamond),serif;font-size:36px}.race-winners{display:flex;justify-content:center;align-items:end;gap:18px;margin:30px 0;flex-wrap:wrap}.race-winner{width:210px;padding:24px 16px;background:#f5f0df;border:1px solid #d7ccb0;border-radius:16px}.race-place-1{background:#fbf1ce;border-color:#c5a354;padding-top:40px}.race-medal{font-size:40px}.race-winner h3{font-size:22px;font-weight:750;overflow-wrap:anywhere}.race-winner p{font-size:13px}.race-winner strong{font-variant-numeric:tabular-nums;font-size:22px}.race-hud-root{font-family:var(--font-manrope),sans-serif}.race-hud{position:fixed;top:86px;left:16px;z-index:55;width:310px;max-height:calc(100dvh - 112px);overflow:auto;background:#fffef8f5;border:1px solid #d8d6c8;color:#292a27;border-radius:14px;box-shadow:0 8px 30px #30372718;padding:18px;pointer-events:auto;font-size:12px;line-height:1.65;backdrop-filter:blur(8px)}.race-hud-small{width:220px}.race-hud-heading{display:flex;justify-content:space-between;align-items:center;gap:14px}.race-hud-heading small{display:block;color:#747569}.race-hud-heading strong{display:block;font-size:15px;overflow-wrap:anywhere}.race-hud-heading button{font-size:25px;cursor:pointer;min-width:32px}.race-clock{font-size:22px;font-weight:750;font-variant-numeric:tabular-nums;margin:10px 0}.race-clock span{font-size:12px;font-weight:500}.race-hud h2{font-size:17px;font-weight:750;margin:10px 0}.race-hud .race-button{width:100%;font-size:12px;margin:10px 0}.race-hud .race-link{display:block}.race-connect{font-size:11px;color:#53684a}.race-countdown{font-size:54px;text-align:center;color:#7c282b;font-weight:800}.race-room-list{margin:18px 0;display:flex;flex-direction:column;gap:8px}.race-room-list li{display:flex;gap:8px;align-items:center;color:#777b70}.race-room-list li.active{color:#7c282b;font-weight:700}.race-room-list li span:first-child{width:20px;flex-shrink:0}.race-room-list li strong{margin-left:auto;white-space:nowrap}.race-answers{display:flex;flex-direction:column;gap:12px;margin:24px 0}.race-answers button{text-align:left;border:1px solid #cdcdbf;padding:14px 18px;border-radius:8px;background:white;cursor:pointer}.race-answers button.selected{background:#edf2e8;border-color:#54724f;box-shadow:0 0 0 1px #54724f}.race-answers button:disabled{opacity:.6}.race-public h1{text-align:center}.race-public>p{text-align:center}.race-public .race-table{background:white}.race-home-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:20px}.race-qr{width:128px;height:128px;image-rendering:pixelated}.race-hud-root button:focus-visible,.race-page button:focus-visible{outline:3px solid #aa8564;outline-offset:3px}
+@media(max-width:760px){.race-entry-grid{grid-template-columns:1fr}.race-dashboard-title{align-items:start;flex-direction:column}.race-stats{grid-template-columns:repeat(2,1fr)}.race-stats>div{padding:14px}.race-fields{flex-direction:column}.race-fields>*{width:100%}.race-panel{padding:20px}.race-header{margin-bottom:24px}.race-tabs button{padding:10px;font-size:12px}.race-modal{padding:34px 20px 22px}.race-hud{left:8px;top:76px;width:270px;padding:12px}.race-hud-small{width:190px}.race-intro{margin:24px auto}.race-winners{gap:10px}.race-winner{width:160px}.race-invite{align-items:start}.race-page{padding-bottom:40px}}
+@media(prefers-reduced-motion:reduce){.race-page *,.race-hud-root *{animation:none!important;transition:none!important}}
+
+.race-ready-button{display:flex;width:100%;min-height:42px;align-items:center;justify-content:center;border-radius:8px;background:#7c282b;color:#fff;font-size:13px;font-weight:800;cursor:pointer}.race-ready-button:hover{background:#642023}.race-ready-button:disabled{cursor:not-allowed;opacity:.5}.race-ready-button-on{background:#246448}.race-ready-button-on:hover{background:#1e573e}.race-ready-hint{color:#5a6058;font-size:11px}
+.race-station{display:flex;width:220px;flex-direction:column;overflow:hidden;border:2px solid #81574a;border-radius:4px;background:#fffaf0;color:#302b24;box-shadow:0 10px 24px rgba(48,43,36,.22);cursor:pointer;text-align:left}.race-station:hover{border-color:#7c282b;transform:translateY(-2px)}.race-station img{width:100%;height:132px;object-fit:cover;background:#e9dfc7}.race-station strong{padding:8px 10px 2px;font-size:12px}.race-station span{padding:0 10px 9px;color:#735c4c;font-size:10px;line-height:1.4}.race-station-done{border-color:#37705b}.race-station-done span{color:#246448}.race-station-notice{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);max-width:min(90vw,560px);padding:12px 16px;background:#fffaf0;color:#332b24;border:1px solid #c3a96d;border-radius:8px;box-shadow:0 10px 24px rgba(48,43,36,.22);font:600 14px var(--font-manrope),sans-serif}.race-station-notice button{margin-left:10px;font-size:18px}.race-station-source{margin:0 0 16px;border:1px solid #d8ceb8;background:#faf5e9}.race-station-source img{display:block;width:100%;max-height:200px;object-fit:cover}.race-station-source figcaption{padding:9px 12px;color:#5b5247;font-size:12px;line-height:1.5}

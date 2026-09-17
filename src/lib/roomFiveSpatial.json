@@ -1,0 +1,10 @@
+{
+  "galleryId": "gallery-three",
+  "roomLength": 50,
+  "worldStartZ": 54,
+  "worldEndZ": 104,
+  "worldCenterZ": 79,
+  "spawnWorldZ": 56,
+  "returnToRoomOneWorldZ": 52,
+  "returnToRoomTwoWorldZ": 102
+}

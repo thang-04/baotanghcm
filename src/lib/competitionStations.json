@@ -1,0 +1,12 @@
+[
+  {"questionId":"journey-v1-1","roomId":"gallery-subsidy","title":"Người ra đi","image":"/exhibits/nguoi-ra-di.jpg","caption":"Bến Nhà Rồng, ngày 05/06/1911 — điểm mở đầu hành trình tìm đường cứu nước.","position":[-8,4.8,18]},
+  {"questionId":"journey-v1-2","roomId":"gallery-subsidy","title":"Nhìn ra thế giới","image":"/exhibits/nhin-ra-the-gioi.gif","caption":"Quan sát, lao động và tìm hiểu thế giới để tìm con đường giải phóng dân tộc.","position":[8,4.8,42]},
+  {"questionId":"journey-v1-3","roomId":"gallery-three","title":"Bến Nhà Rồng","image":"/exhibits/nha-rong-harbor-1911.png","caption":"Nơi Nguyễn Tất Thành rời Tổ quốc trên con tàu Amiral Latouche-Tréville.","position":[-6,4.8,65]},
+  {"questionId":"journey-v1-4","roomId":"gallery-three","title":"Công việc trên tàu","image":"/exhibits/nha-rong-galley.svg","caption":"Người thanh niên mang tên Văn Ba làm công việc phụ bếp trên tàu.","position":[6,4.8,90]},
+  {"questionId":"journey-v1-5","roomId":"gallery-ceramics","title":"Tiếng nói từ An Nam","image":"/exhibits/tieng-noi-mot-dan-toc.jpg","caption":"Năm 1919, bản Yêu sách của nhân dân An Nam đưa các quyền cơ bản tới diễn đàn quốc tế.","position":[-8,4.8,159]},
+  {"questionId":"journey-v1-6","roomId":"gallery-ceramics","title":"Quyền của nhân dân","image":"/exhibits/tieng-noi-mot-dan-toc.jpg","caption":"Tự do, dân chủ và bình đẳng là những nội dung trọng tâm của bản Yêu sách.","position":[8,4.8,172]},
+  {"questionId":"journey-v1-7","roomId":"gallery-market-economy","title":"Liên Xô – Quảng Châu","image":"/images/nhung-diem-dung-cach-mang.jpg","caption":"Những điểm dừng quan trọng trong giai đoạn chuẩn bị lực lượng cách mạng.","position":[-4,4.8,189]},
+  {"questionId":"journey-v1-8","roomId":"gallery-market-economy","title":"Chuẩn bị cho cách mạng","image":"/images/nhung-diem-dung-cach-mang.jpg","caption":"Học lý luận, xây dựng tổ chức và huấn luyện cán bộ trong hành trình cách mạng.","position":[4,4.8,246]},
+  {"questionId":"journey-v1-9","roomId":"gallery-paintings","title":"Hội tụ tại Hương Cảng","image":"/images/hoi-tu-huong-cang-1930.jpg","caption":"Hội nghị hợp nhất dẫn tới sự ra đời của Đảng Cộng sản Việt Nam.","position":[-8,4.8,114]},
+  {"questionId":"journey-v1-10","roomId":"gallery-paintings","title":"Dấu mốc năm 1930","image":"/exhibits/hoi-tu-1930.jpg","caption":"Đầu năm 1930 tại Hương Cảng, Nguyễn Ái Quốc chủ trì hội nghị hợp nhất.","position":[8,4.8,141]}
+]

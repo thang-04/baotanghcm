@@ -1,0 +1,19 @@
+{
+  "galleries": [
+    {
+      "id": "gallery-paintings",
+      "name": "Phòng 05: Phòng Hội Nghị",
+      "description": "Không gian trưng bày các tác phẩm hội họa kinh điển thế giới chất liệu sơn dầu.",
+      "scene_asset_url": "",
+      "is_active": true,
+      "room_width": 24,
+      "room_length": 46,
+      "room_height": 6,
+      "floor_color": "#e6dbc9",
+      "wall_color": "#fbf6ec",
+      "wainscoting_color": "#e8e0d3",
+      "floor_type": "wood"
+    }
+  ],
+  "exhibits": []
+}

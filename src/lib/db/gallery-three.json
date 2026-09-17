@@ -1,0 +1,99 @@
+{
+  "galleries": [
+    {
+      "id": "gallery-three",
+      "name": "Phòng 02: Bến Nhà Rồng 1911",
+      "description": "Không gian tư liệu về Bến Nhà Rồng, chuyến tàu Amiral Latouche-Tréville và công việc phụ bếp của người thanh niên Nguyễn Tất Thành.",
+      "scene_asset_url": "",
+      "is_active": true,
+      "room_width": 24,
+      "room_length": 50,
+      "room_height": 6,
+      "floor_color": "#dedace",
+      "wall_color": "#f0f5f4",
+      "wainscoting_color": "#d6e2e0",
+      "floor_type": "wood"
+    }
+  ],
+  "exhibits": [
+    {
+      "id": "nha-rong-departure-1911",
+      "gallery_id": "gallery-three",
+      "title": { "vi": "Bến Nhà Rồng, ngày 05/06/1911", "en": "Nhà Rồng Wharf, 5 June 1911" },
+      "author": { "vi": "Tư liệu lịch sử", "en": "Historical archive" },
+      "description": { "vi": "Từ Bến Nhà Rồng ở Sài Gòn, người thanh niên Nguyễn Tất Thành rời Tổ quốc ngày 05/06/1911 để tìm con đường giải phóng dân tộc.", "en": "From Nhà Rồng Wharf in Sài Gòn, young Nguyễn Tất Thành left Vietnam on 5 June 1911 to seek a path to national liberation." },
+      "model_3d_url": "",
+      "thumbnail_url": "/exhibits/nha-rong-harbor-1911.png",
+      "image_urls": [
+        "/exhibits/nha-rong-harbor-1911.png",
+        "/exhibits/nha-rong-postcard-1911.png"
+      ],
+      "coordinate_x": -10.8,
+      "coordinate_y": 2.7,
+      "coordinate_z": -12.5,
+      "rotation_x": 0,
+      "rotation_y": 1.5708,
+      "rotation_z": 0,
+      "scale_x": 3.6,
+      "scale_y": 2.16,
+      "scale_z": 1
+    },
+    {
+      "id": "nha-rong-latouche-treville",
+      "gallery_id": "gallery-three",
+      "title": { "vi": "Tàu Amiral Latouche-Tréville", "en": "The Amiral Latouche-Tréville" },
+      "author": { "vi": "Tư liệu hàng hải", "en": "Maritime archive" },
+      "description": { "vi": "Tàu Amiral Latouche-Tréville là con tàu đưa Nguyễn Tất Thành rời Bến Nhà Rồng. Trên tàu, Người dùng tên Văn Ba và làm công việc phụ bếp.", "en": "The Amiral Latouche-Tréville was the ship that carried Nguyễn Tất Thành from Nhà Rồng Wharf. On board, he used the name Văn Ba and worked as a kitchen assistant." },
+      "model_3d_url": "",
+      "thumbnail_url": "/exhibits/nha-rong-ship.svg",
+      "coordinate_x": 10.8,
+      "coordinate_y": 2.7,
+      "coordinate_z": -12.5,
+      "rotation_x": 0,
+      "rotation_y": -1.5708,
+      "rotation_z": 0,
+      "scale_x": 3.6,
+      "scale_y": 2.16,
+      "scale_z": 1
+    },
+    {
+      "id": "nha-rong-galley-work",
+      "gallery_id": "gallery-three",
+      "title": { "vi": "Công việc phụ bếp", "en": "The kitchen assistant's work" },
+      "author": { "vi": "Tư liệu lao động", "en": "Labour archive" },
+      "description": { "vi": "Công việc trên tàu đòi hỏi chuẩn bị bếp, vận chuyển than và thực phẩm, dọn dẹp khu phục vụ. Đó là trải nghiệm lao động đầu tiên của Văn Ba trên hành trình biển.", "en": "Work on board involved preparing the galley, carrying coal and provisions, and cleaning service areas. It was Văn Ba's first experience of demanding labour at sea." },
+      "model_3d_url": "",
+      "thumbnail_url": "/exhibits/nha-rong-galley.svg",
+      "coordinate_x": -10.8,
+      "coordinate_y": 2.7,
+      "coordinate_z": 10.5,
+      "rotation_x": 0,
+      "rotation_y": 1.5708,
+      "rotation_z": 0,
+      "scale_x": 3.6,
+      "scale_y": 2.16,
+      "scale_z": 1
+    },
+    {
+      "id": "nha-rong-first-voyage",
+      "gallery_id": "gallery-three",
+      "title": { "vi": "Hải trình đầu tiên", "en": "The first voyage" },
+      "author": { "vi": "Bản đồ tư liệu", "en": "Archival map" },
+      "description": { "vi": "Con tàu đi từ Sài Gòn qua nhiều cảng ở châu Á và châu Phi trước khi tới Pháp. Những điểm dừng mở ra cho Nguyễn Tất Thành cơ hội quan sát đời sống và xã hội của nhiều dân tộc.", "en": "The ship travelled from Sài Gòn through ports in Asia and Africa before reaching France. These stops gave Nguyễn Tất Thành opportunities to observe the lives and societies of many peoples." },
+      "model_3d_url": "",
+      "thumbnail_url": "/exhibits/nha-rong-first-voyage.png",
+      "image_urls": [
+        "/exhibits/nha-rong-first-voyage.png"
+      ],
+      "coordinate_x": 10.8,
+      "coordinate_y": 2.7,
+      "coordinate_z": 10.5,
+      "rotation_x": 0,
+      "rotation_y": -1.5708,
+      "rotation_z": 0,
+      "scale_x": 3.6,
+      "scale_y": 2.16,
+      "scale_z": 1
+    }
+  ]
+}

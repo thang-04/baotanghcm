@@ -1,0 +1,12 @@
+{
+  "galleryId": "gallery-market-economy",
+  "roomWidth": 18,
+  "roomLength": 80,
+  "localStartZ": -75,
+  "localEndZ": 5,
+  "worldOffsetZ": 255,
+  "worldStartZ": 180,
+  "worldEndZ": 260,
+  "spawnLocalZ": -72,
+  "spawnWorldZ": 183
+}
