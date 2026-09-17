@@ -1,7 +1,6 @@
 export interface RealtimeEndpoint {
   origin: string;
   socketPath: string;
-  httpBase: string;
 }
 
 export function getRealtimeEndpoint(): RealtimeEndpoint {
@@ -14,21 +13,26 @@ export function getRealtimeEndpoint(): RealtimeEndpoint {
     return {
       origin: configuredOrigin,
       socketPath: process.env.NEXT_PUBLIC_WS_PATH || '/socket.io',
-      httpBase: configuredOrigin,
     };
   }
 
   if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
     return {
       origin: window.location.origin,
-      socketPath: '/api/socket-io/socket.io',
-      httpBase: `${window.location.origin}/api/socket-io`,
+      socketPath: '/api/socket-io',
     };
   }
 
   return {
     origin: 'http://localhost:3001',
     socketPath: '/socket.io',
-    httpBase: 'http://localhost:3001',
   };
+}
+
+export function getRealtimeStatsUrl(galleryId: string): string {
+  const endpoint = getRealtimeEndpoint();
+  if (endpoint.socketPath === '/api/socket-io') {
+    return `${endpoint.origin}/api/socket-io?endpoint=stats&galleryId=${encodeURIComponent(galleryId)}`;
+  }
+  return `${endpoint.origin}/stats?galleryId=${encodeURIComponent(galleryId)}`;
 }

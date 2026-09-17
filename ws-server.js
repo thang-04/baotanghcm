@@ -178,7 +178,12 @@ const getSocketRoom = (galleryId) => {
 
 const server = http.createServer((req, res) => {
   if (process.env.VERCEL && req.url) {
-    req.url = req.url.replace(/^\/api\/socket-io/, '') || '/';
+    const incomingUrl = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
+    if (req.method === 'POST' && incomingUrl.pathname === '/api/socket-io') {
+      req.url = '/competition-api';
+    } else if (req.method === 'GET' && incomingUrl.pathname === '/api/socket-io' && incomingUrl.searchParams.get('endpoint') === 'stats') {
+      req.url = `/stats?galleryId=${encodeURIComponent(incomingUrl.searchParams.get('galleryId') || '')}`;
+    }
   }
   if (competition.http(req, res)) return;
   // CORS Headers để cho phép gọi API từ client ở cổng khác (cổng 3000) hoặc production URL
@@ -223,7 +228,7 @@ const server = http.createServer((req, res) => {
 });
 
 const io = new Server(server, {
-  path: process.env.VERCEL ? '/api/socket-io/socket.io' : '/socket.io',
+  path: process.env.VERCEL ? '/api/socket-io' : '/socket.io',
   cors: {
     origin: '*',
     methods: ['GET', 'POST']

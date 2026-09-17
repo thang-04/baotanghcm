@@ -12,10 +12,10 @@ export async function POST(request: NextRequest) {
   if (body.length > 16000) return Response.json({ ok: false, error: 'Yêu cầu quá lớn.' }, { status: 413 });
   try {
     const configuredServer = process.env.COMPETITION_SERVER_URL?.replace(/\/$/, '');
-    const serverBase = process.env.VERCEL
+    const upstreamUrl = process.env.VERCEL
       ? `${request.nextUrl.origin}/api/socket-io`
-      : configuredServer || 'http://127.0.0.1:3001';
-    const upstream = await fetch(`${serverBase}/competition-api`, {
+      : `${configuredServer || 'http://127.0.0.1:3001'}/competition-api`;
+    const upstream = await fetch(upstreamUrl, {
       method: 'POST', cache: 'no-store', body,
       headers: {
         'Content-Type': 'application/json', cookie: request.headers.get('cookie') || '',
